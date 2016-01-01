@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Fast-paced '90s-style first-person shooter with an abstract 2.5D-meets-voxels aesthetic, made entirely in JavaScript / WebGL.">
+
+		<meta property="og:title" content="gorescript" />
+		<meta property="og:site_name" content="gorescript"/>
+		<meta property="og:url" content="http://gorescript.com" />
+		<meta property="og:description" content="Fast-paced '90s-style first-person shooter with an abstract 2.5D-meets-voxels aesthetic, made entirely in JavaScript / WebGL." />
+		<meta property="og:image" content="http://gorescript.com/img/gs_og.jpg" />
+
+		<title>gorescript</title>
+
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+
+		<style>
+
+			body {
+				padding-top: 66px;
+  			}
+			
+  			.logo.img-responsive {
+  				margin: 0 auto;
+  			}
+
+			.youtube-vid {
+				width: 100%;
+				height: 360px;
+			}
+			
+			.btn-success {
+				margin: 10px;
+				width: 175px;
+			}
+
+  		</style>
+
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="container">
+			<div class="text-center">
+				<img class="logo img-responsive" src="../img/logo_gs.png" alt="gorescript">
+
+				<p class="lead"><strong>Fast-paced '90s-style first-person shooter with an abstract 2.5D-meets-voxels aesthetic,<br class="hidden-xs"/> made entirely in JavaScript / WebGL.</strong></p>
+				
+				<p>
+					<a class="btn btn-lg btn-success" href="play" role="button"><strong>Play</strong><br/><small><em>Chrome, Firefox</em></small></a>
+					<a class="btn btn-lg btn-success" href="http://chrome.google.com/webstore/detail/gorescript/bbohlinegjlacogbjchanihbiiboabcp" role="button"><strong>Add to Chrome</strong><br/><small><em>Chrome App</em></small></a>
+				</p><br/>
+			</div>
+
+			<div class="row">
+				<div class="text-justify">
+					<div class="row" style="margin-top: 50px">
+						<div class="col-xs-12 col-md-12">
+							<iframe class="youtube-vid" src="http://www.youtube.com/embed/mviNiZnASC4" frameborder="0" allowfullscreen></iframe>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-6 col-md-3">
+							<a href="img/screenshots/1.jpg" class="thumbnail" target="_blank">
+								<img src="img/screenshots/1_sm.jpg" alt="screenshot 1">
+							</a>
+						</div>
+						<div class="col-xs-6 col-md-3">
+							<a href="img/screenshots/2.jpg" class="thumbnail" target="_blank">
+								<img src="img/screenshots/2_sm.jpg" alt="screenshot 2">
+							</a>
+						</div>
+						<div class="col-xs-6 col-md-3">
+							<a href="img/screenshots/3.jpg" class="thumbnail" target="_blank">
+								<img src="img/screenshots/3_sm.jpg" alt="screenshot 3">
+							</a>
+						</div>
+						<div class="col-xs-6 col-md-3">
+							<a href="img/screenshots/4.jpg" class="thumbnail" target="_blank">
+								<img src="img/screenshots/4_sm.jpg" alt="screenshot 4">
+							</a>
+						</div>
+					</div>
+
+					<h2 id="credits">Credits</h2><br/>					
+
+					<p>Music by:</p>
+					<ul>
+						<li><strong><a href="http://www.nosoapradio.us" target="_blank">DST</a></strong>: <strong>Angry Robot III</strong> and <a href="http://opengameart.org/content/tower-defense-theme" target="_blank"><strong>Tower Defense Theme</strong></a></li>
+						<li><strong><a href="http://opengameart.org/users/3uhox" target="_blank">3uhox</a></strong>: <a href="http://opengameart.org/content/simple-action-beat" target="_blank"><strong>Simple Action Beat</strong></a></li>
+					</ul><br/>
+
+					<p>Sounds effects used are downloaded from <a href="http://freesound.org/" target="_blank">freesound.org</a> and <a href="http://opengameart.org/" target="_blank">opengameart.org</a>, where they are listed as public domain content.</p>				
+
+					<p>The font used in the game menus and HUD is <a href="http://www.fontsquirrel.com/fonts/capsuula" target="_blank">Capsuula by Henrich Fichna</a>, downloaded from <a href="http://www.fontsquirrel.com" target="_blank">fontsquirrel.com</a>.</p>
+
+					<p>The space textures for the skybox are generated using <a href="http://alexcpeterson.com/spacescape" target="_blank">Spacescape by Alex Peterson</a>.</p>
+
+					<p><strong>Additional credits, per individual asset, can be found in the <a href="https://github.com/gorescript/gorescript/releases" target="_blank">assets archive</a> (assets/credits.txt).</strong></p>
+
+					<p><strong>gorescript was created, designed and implemented by <a href="http://ro.linkedin.com/in/sergiubucur/en" target="_blank">Sergiu Valentin Bucur</a> in 2014.</strong></p><br/>
+
+					<h2 id="contact">Contact</h2><br/>
+					
+					<p class="lead"><a href="http://twitter.com/gorescript" target="_blank">@gorescript</a><br/><a href="mailto:timeinvariantgames@gmail.com">timeinvariantgames@gmail.com</a></p><br/><br/>
+
+				</div>
+			</div>
+		</div>
+
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+
+		<script>
+
+			var $yt;
+
+			$(document).ready(function() {
+				$yt = $(".youtube-vid");
+				$(window).resize(resizeVideos);
+				resizeVideos();
+			});
+
+			function resizeVideos() {
+				$yt.each(function() {
+					$(this).height($(this).width() / 1.7777);
+				});
+			}
+
+		</script>
+		
+	</body>
+</html>
