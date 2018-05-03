@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Gorescript is a classic first person shooter game, inspired by the great old classic FPS games that defined the genre. Fight your way through 18 handcrafted levels of frantic action paced gameplay, from easy to hardcore levels of difficulty.">
+
+		<meta property="og:title" content="gorescript" />
+		<meta property="og:site_name" content="gorescript"/>
+		<meta property="og:url" content="http://gorescript.com" />
+		<meta property="og:description" content="Gorescript is a classic first person shooter game, inspired by the great old classic FPS games that defined the genre. Fight your way through 18 handcrafted levels of frantic action paced gameplay, from easy to hardcore levels of difficulty." />
+		<meta property="og:image" content="http://gorescript.com/img/logo_black.png" />
+
+		<title>Gorescript Level Editor Help</title>
+
+		<link rel="icon" type="image/png" href="../favicon-32x32.png" sizes="32x32" />
+		<link rel="icon" type="image/png" href="../favicon-16x16.png" sizes="16x16" />
+
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+		<style>
+			* { box-sizing: border-box; }
+			body { padding: 20px; font-family: "Roboto", Arial, Helvetica, sans-serif; }
+			h1, h2 { margin: 0; }
+			a { text-decoration: none }
+			a:hover { text-decoration: underline }
+			.section { margin-top: 33px; }
+			.section .header { margin-bottom: 10px }
+			.page-container { width: 960px }
+			.back-to-top { position: fixed; right: 0; top: 0; display: inline-block; background: #000; color: #fff; padding: 10px; border: 0; z-index: 1000 }
+			.back-to-top a { color: #fff !important }
+		</style>
+	</head>
+
+	<body>
+
+		<div class="page-container">
+			<h1>Gorescript Level Editor Help</h1>
+
+			<div class="table-of-contents">
+				<ul>
+					<li><a href="#overview">Overview</a></li>
+					<li><a href="#controls">Mouse and keyboard controls</a></li>
+					<li><a href="#tutorial-videos">Tutorial videos</a></li>
+					<ul>
+						<li><a href="#tutorial1">Part 1 - Setup, Segments and Sectors</a></li>
+						<li><a href="#tutorial2">Part 2 - Stairs, Windows and Outdoor Areas</a></li>
+						<li><a href="#tutorial3">Part 3 - Weapons, Monsters and Powerups</a></li>
+						<li><a href="#tutorial4">Part 4 - Outdoor Areas Revisited</a></li>
+						<li><a href="#tutorial5">Part 5 - Elevators, Switches and Scripting</a></li>
+						<li><a href="#tutorial6">Part 6 - Publishing to Steam Workshop</a></li>
+					</ul>
+					<li><a href="#reference">Reference</a></li>
+					<ul>
+						<li><a href="#layers">Layers</a></li>
+						<ul>
+							<li><a href="#segment">Segment</a></li>
+							<li><a href="#sector">Sector</a></li>
+							<li><a href="#entity">Entity</a></li>
+							<li><a href="#zone">Zone</a></li>
+							<li><a href="#light">Light</a></li>
+						</ul>
+						<li><a href="#scripting">Scripting</a></li>
+					</ul>
+					<li><a href="#limitations">Limitations</a></li>
+				</ul>
+			</div>
+
+			<div class="back-to-top">
+				&uarr; <a href="#">back to top</a>
+			</div>
+
+			<div id="overview" class="section">
+				<div class="header">
+					<h2>Overview</h2>
+				</div>
+
+				<div>
+					<p>The Gorescript Level Editor allows you to create custom levels for Gorescript. You can:</p>
+					<ul>
+						<li>Create entirely new levels and share them on Steam Workshop</li>
+						<li>Add monsters, weapons, powerups and explosive barrels</li>
+						<li>Add switches, trap doors and elevators</li>
+						<li>Modify lighting</li>
+						<li>Script various parts of the level using Lua</li>
+					</ul>
+
+					<p>The editor is a separate app from the game itself, built as a JavaScript desktop application using GitHub's Electron.</p>
+				</div>
+			</div>
+
+			<div id="controls" class="section">
+				<div class="header">
+					<h2>Mouse and keyboard controls</h2>
+				</div>
+
+				<div>
+					<p>Here's a listing of the primary mouse and keyboard controls for the editor.</p>
+					<p>Mouse:</p>
+					<ul>
+						<li>Left-click and hold to select/draw (depending on the currently selected layer and mode)</li>
+						<li>Right-click and hold to move around</li>
+					</ul>
+					<p>Keyboard:</p>
+					<ul>
+						<li>Hold left CTRL to append/deselect an element when multi-selecting</li>
+						<li>Hold left SHIFT when drawing segments to draw them at 90 degree angles</li>
+					</ul>
+				</div>
+			</div>
+
+			<div id="tutorial-videos" class="section">
+				<div class="header">
+					<h2>Tutorial videos</h2>
+				</div>
+
+				<div>
+					<p>The level editor might seem a bit scary at first, so we prepared some videos showing you how to build a simple Gorescript level. Since there's never enough E1M1 tribute levels out there, here's our take on the subject.</p>
+				</div>
+			</div>
+
+			<div id="tutorial1" class="section">
+				<div class="header">
+					<h2>Part 1 - Setup, Segments and Sectors</h2>
+				</div>
+
+				<div style="position:relative;height:0;padding-bottom:56.25%">
+					<iframe src="https://www.youtube.com/embed/Copo_nO9aws?ecver=2" width="640" height="360" frameborder="0" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe>
+				</div>
+
+				<div>
+					<p>In this part we go over installing the level editor from Steam and making your first room.</p>
+					<p>Levels in Gorescript are 2.5D, meaning you can never have one room over another one. Similarly, you can't build actual bridges (the type where you can walk above and below them). Think of a level as a blueprint for one single floor of a house.</p>
+					<p>The usual steps for building a room are:</p>
+					<ol>
+						<li>Draw polygons using segments</li>
+						<li>Go through each polygon and convert it to a sector</li>
+						<li>Go through each sector and modify properties such as floor height, floor-ceiling distance, light level, light color, etc.</li>
+						<li>Mark certain sectors as doors</li>
+						<li>Add lights</li>
+					</ol>
+					<p>A few gotchas:</p>
+					<ul>
+						<li>You need to have at least two adjacent sectors, otherwise you'll get the "sector has no corresponding region" error</li>
+						<li>Make sure to click "Regenerate sides" (Segment layer menu) after creating or modifying sectors, otherwise the sectors won't have walls. Beware though, since "Regenerate sides" will remove all user-generated segments except those explicitly marked as switches or TV screens.</li>
+						<li>Make sure to set the player start position to somewhere within a sector, otherwise you'll start in outer space</li>
+					</ul>
+					<p>In case you were wondering, the "Gorescript green" is "rbg(192, 250, 192)".</p>
+					<p>After you have at least one room set up, click the "Save" button in the menu. Then click the "Play map" button to run it.</p>
+					<p>The custom levels you create via the level editor are saved in the "Gorescript/assets/custom-maps" folder, with a new folder created for each custom level.</p>
+					<p>For any level the resulting folder structure is (using the "e1m1_tribute" level as an example):</p>
+					<ul>
+						<li>Gorescript/assets/custom-maps/</li>
+						<ul>
+							<li>e1m1_tribute/</li>
+							<ul>
+								<li><strong>map.json</strong></li>
+								<ul><li>(Required) The level itself (generated automatically, do not modify except by using the level editor)</li></ul>
+								<li><strong>metadata.txt</strong></li>
+								<ul><li>(Required) Level metadata for Steam Workshop (also generated automatically, do not modify except by using the level editor)</li></ul>
+								<li><strong>e1m1_tribute.png</strong></li>
+								<ul><li>(Optional) The thumbnail image for Steam Workshop (can be either .png or .jpg, not added by the level editor, you can add/modify this manually)</li></ul>
+								<li><strong>script.lua</strong></li>
+								<ul><li>(Optional) The Lua script for the level (required if the "Has script" checkbox is checked, also not added by the level editor, you can add/modify this manually)</li></ul>
+							</ul>
+						</ul>
+					</ul>
+				</div>
+			</div>
+
+			<div id="tutorial2" class="section">
+				<div class="header">
+					<h2>Part 2 - Stairs, Windows and Outdoor Areas</h2>
+				</div>
+
+				<div style="position:relative;height:0;padding-bottom:56.25%">
+					<iframe src="https://www.youtube.com/embed/8-P_RIDDVEI?ecver=2" width="640" height="360" frameborder="0" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe>
+				</div>
+
+				<div>
+					<p>In this video we go over a few more advanced topics:</p>
+					<ul>
+						<li><strong>Stairs</strong> are adjacent sectors with increasing or decreasing floor heights. The floor height difference between stairs should be no more than 4, to allow the player to climb them without needing to use anti-grav boots.</li>
+						<li><strong>Windows</strong> are usually sectors with higher floor height and smaller floor-ceiling distance compared to adjacent sectors. The floor height difference between the window and the adjacent sectors is usually 8 or more, to prevent the player from climbing on top of it.</li>
+						<li><strong>Outdoor areas</strong> are sectors with the "Ceiling" checkbox unchecked. The floor-ceiling distance should be 64 or more to prevent the player from jumping over the walls and into outer space.</li>
+					</ul>
+				</div>
+			</div>
+
+			<div id="tutorial3" class="section">
+				<div class="header">
+					<h2>Part 3 - Weapons, Monsters and Powerups</h2>
+				</div>
+
+				<div style="position:relative;height:0;padding-bottom:56.25%">
+					<iframe src="https://www.youtube.com/embed/6D-qZy3k2vs?ecver=2" width="640" height="360" frameborder="0" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe>
+				</div>
+
+				<div>
+					<p>In this video we go over weapons, monsters and powerups which are all added via the Entity layer menu. For a more thorough listing, see the <a href="#entity">Entity</a> part of the Reference section.</p>
+					<p>Make sure to click "Compute Y for selected entities" at least for each newly added entity, or when the underlying sector has changed height. Otherwise the entities might end up floating high up in the air or be buried inside level geometry.</p>
+				</div>
+			</div>
+
+			<div id="tutorial4" class="section">
+				<div class="header">
+					<h2>Part 4 - Outdoor Areas Revisited</h2>
+				</div>
+
+				<div style="position:relative;height:0;padding-bottom:56.25%">
+					<iframe src="https://www.youtube.com/embed/_e0qD-KjXbg?ecver=2" width="640" height="360" frameborder="0" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe>
+				</div>
+
+				<div>
+					<p>In this video we go over outdoor areas again, this time in more detail. The outdoor area shown in <a href="#tutorial2">Part 2</a> is the "unreachable" kind. This video shows how to make "walkable" outdoor areas.</p>
+					<p>A key part of making "walkable" outdoor areas is the "Ceiling thickness" sector parameter. This parameter is used on the sectors located immediately next to sectors with the "Ceiling" checkbox unchecked to specify the height of the side panels (created automatically when clicking "Regenerate sides" in the Segment layer menu.</p>
+				</div>
+			</div>
+
+			<div id="tutorial5" class="section">
+				<div class="header">
+					<h2>Part 5 - Elevators, Switches and Scripting</h2>
+				</div>
+
+				<div style="position:relative;height:0;padding-bottom:56.25%">
+					<iframe src="https://www.youtube.com/embed/9Jc8uK1kVI4?ecver=2" width="640" height="360" frameborder="0" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe>
+				</div>
+
+				<div>
+					<p>In this video we go over the final touches. First off, the red "end level" ball is an entity called "letter" (don't ask), similar to weapons and powerups.</p>
+					<p>Secondly, we illustrate two advanced topics:</p>
+					<ul>
+						<li><strong>Elevators</strong> are sectors, similar to doors, that allow you to move up and down on top of them. Elevators are usually scripted.</li>
+						<li><strong>Switches</strong> are special segments that are drawn on top of existing wall segments and render an on/off switch. Switches are always scripted since they don't do anything by themselves.</li>
+					</ul>
+					<p>Thirdly, we go over scripting. For a more thorough listing, see the <a href="#scripting">Scripting</a> part of the Reference section.</p>
+				</div>
+			</div>
+
+			<div id="tutorial6" class="section">
+				<div class="header">
+					<h2>Part 6 - Publishing to Steam Workshop</h2>
+				</div>
+
+				<div style="position:relative;height:0;padding-bottom:56.25%">
+					<iframe src="https://www.youtube.com/embed/lIckEqk-XGU?ecver=2" width="640" height="360" frameborder="0" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe>
+				</div>
+
+				<div>
+					<p>This video shows how to publish a level to Steam Workshop. Publishing is done via the level editor and will upload the contents of the level folder to Steam Workshop.</p>
+					<p>Once a level is successfully published, it will be assigned a workshop ID. Subsequent publishing will in fact edit the existing Steam Workshop item associated with the level.</p>
+					<p>If for any reason you want to create a new item instead of updating the existing one, make sure to check the "Publish as new item" checkbox when publishing.</p>
+					<p>To be able to access a custom level in Gorescript, you must be subscribed in Steam Workshop to that level. Once subscribed, if the level doesn't show up ingame in the "Custom levels" menu, restarting Steam should fix it.</p>
+				</div>
+			</div>
+
+			<div id="reference" class="section">
+				<div class="header">
+					<h2>Reference</h2>
+				</div>
+
+				<div>
+					<p>This section is meant to serve as a reference for level editor functionality.</p>
+				</div>
+			</div>
+
+			<div id="layers" class="section">
+				<div class="header">
+					<h2>Layers</h2>
+				</div>
+
+				<div>
+					<p>Each level is composed of 5 layers:</p>
+					<ul>
+						<li><strong>Segment</strong>. Lines describing walls. The primary way of adding geometry to a level. Can be either walls, side panels, switches or TV screens. Walls and side panels are auto-generated (via the "Regenerate sides" button) while switches and TV screens are user-drawn.</li>
+						<li><strong>Sector</strong>. Polygons describing floors and ceilings, doors and elevators. Created by converting segments to sectors.</li>
+						<li><strong>Entity</strong>. Points describing monster and powerup placement.</li>
+						<li><strong>Zone</strong>. Rectangles used as triggers in the level script.</li>
+						<li><strong>Light</strong>. Points describing light placement and color.</li>
+					</ul>
+					<p>Following is a list of properties for each layer.</p>
+				</div>
+			</div>
+
+			<div id="segment" class="section">
+				<div class="header">
+					<h2>Segment</h2>
+				</div>
+
+				<div>
+					<ul>
+						<li><strong>Bottom Y</strong>. Integer. The bottom Y position used when rendering the segment.</li>
+						<li><strong>Top Y</strong>. Integer. The top Y position used when rendering the segment. Must be higher than Bottom Y.</li>
+						<li><strong>TV screen</strong>. Boolean. Marks the segment as a TV screen, normally used as a decal over existing wall segments.</li>
+						<li><strong>Texture</strong>. String. Only visible if the segment is marked as a TV screen. Default value: "wall". Possible values include:</li>
+						<ul>
+							<li>exit</li>
+							<li>strafe_run</li>
+							<li>why</li>
+							<li>under_construction</li>
+						</ul>
+						<li><strong>Switch</strong>. Boolean. Marks the segment as a switch, used in scripting. If checked, Top Y is unused.</li>
+					</ul>
+				</div>
+			</div>
+
+			<div id="sector" class="section">
+				<div class="header">
+					<h2>Sector</h2>
+				</div>
+
+				<div>
+					<ul>
+						<li><strong>Floor height</strong>. Integer. The height of the floor part of the sector.</li>
+						<li><strong>Ceiling</strong>. Boolean. Specifies if the sector has a ceiling.</li>
+						<li><strong>Floor-ceiling dist.</strong>. Positive integer. The distance between floor and ceiling (also must be defined for sectors without ceiling).</li>
+						<li><strong>Ceiling thickness</strong>. Positive integer. The height of the side panel generated when a sector with ceiling is located next to a sector without ceiling.</li>
+						<li><strong>Door</strong>. Boolean. Marks the sector as a door.</li>
+						<ul>
+							<li><strong>Door max height</strong>. Positive integer. Only visible when the sector is marked as a door. Specifies how high the door should raise when opening. Should be at least 24 to allow monsters to pass through.</li>
+							<li><strong>Key</strong>. Selection. Only visible when the sector is marked as a door. Specifies if the door needs a certain key (red, blue) to open.</li>
+						</ul>
+						<li><strong>Elevator</strong>. Boolean. Marks the sector as an elevator.</li>
+						<ul>
+							<li><strong>Elevator max height</strong>. Positive integer. Only visible when the sector is marked as an elevator. Used to determine the bottom Y position of the elevator.</li>
+						</ul>
+						<li><strong>Use vertex colors</strong>. Boolean. Only visible when the sector is marked as a door or an elevator. Specifies if the resulting door/elevator should use a texture (unchecked) or be painted in the same color as defined by the sector "Light color" + "Light level" properties (checked). Used for hidden doors/elevators.</li>
+						<li><strong>Floor texture</strong>. String. Only visible when the sector is marked as an elevator and "Use vertex colors" is unchecked. See Textures below for a list of possible values.</li>
+						<li><strong>Ceiling texture</strong>. String. Only visible when the sector is marked as a door and "Use vertex colors" is unchecked. See Textures below for a list of possible values.</li>
+						<li><strong>Side texture</strong>. String. Only visible when the sector is marked as a door or an elevator and "Use vertex colors" is unchecked. See Textures below for a list of possible values.</li>
+						<li><strong>Textures</strong>. Used in Floor texture, Ceiling texture and Side texture.</li>
+						<ul>
+							<li>cyan_wall</li>
+							<li>blue_metal</li>
+							<li>dark_blue_metal</li>
+							<li>white</li>
+							<li>wall</li>
+							<li>metal</li>
+							<li>red</li>
+							<li>red_metal</li>
+							<li>blue</li>
+							<li>cyan</li>
+							<li>brown</li>
+						</ul>
+						<li><strong>Teleport In ID</strong>. Positive integer. Only visible if the sector is not marked as a door or an elevator. Marks the sector as a teleportion pad. When entering the sector, the player is teleported to the sector marked with the same ID on "Teleport Out ID". Sectors can either be "Teleport In" or "Teleport Out", not both.</li>
+						<li><strong>Teleport Out ID</strong>. Positive integer. Only visible if the sector is not marked as a door or an elevator. Marks the sector as the exit area of a teleportion pad. Must match the ID of another sector's "Teleport In ID".</li>
+						<li><strong>Light level</strong>. Positive integer between 1 and 10.</li>
+						<li><strong>Light color</strong>. Color.</li>
+					</ul>
+				</div>
+			</div>
+
+			<div id="entity" class="section">
+				<div class="header">
+					<h2>Entity</h2>
+				</div>
+
+				<div>
+					<p>Entity types:</p>
+					<ul>
+						<li><strong>Powerups</strong></li>
+						<ul>
+							<li><strong>redkey</strong>. The red key.</li>
+							<li><strong>bluekey</strong>. The blue key.</li>
+							<li><strong>ammo</strong>. Ammo pickup.</li>
+							<li><strong>medkit</strong>. Health pickup.</li>
+							<li><strong>powerup</strong>. Random powerup connected to a loot table. See Loot table ID below for a list of possible values.</li>
+							<li><strong>armor</strong>. Armor shard pickup.</li>
+							<li><strong>letter</strong>. Red ball which ends the level.</li>
+						</ul>
+						<li><strong>Monsters</strong></li>
+						<ul>
+							<li><strong>nom</strong>. Big red thing that wants to eat you.</li>
+							<li><strong>eye</strong>. Blue thing that wants to shoot you.</li>
+							<li><strong>hydra</strong>. Big green thing that wants to shoot you three times.</li>
+							<li><strong>boss1</strong>. Huge four-eyed blue thing that shoots rockets in all directions.</li>
+							<li><strong>boss2</strong>. Huge red thing that wants to eat you.</li>
+						</ul>
+						<li><strong>Scene props</strong></li>
+						<ul>
+							<li><strong>barrel</strong>. Explosive barrel.</li>
+						</ul>
+					</ul>
+
+					<p>Properties:</p>
+					<ul>
+						<li><strong>Y</strong>. Integer. The Y axis position to place the entity at. Usually set indirectly by clicking "Compute Y for selected entities".</li>
+						<li><strong>Rotation (deg)</strong>. Integer. Only visible for monsters. Specifies the initial rotation (in degrees) of the monster.</li>
+						<li><strong>Static</strong>. Boolean. Only applicable for powerups. If checked, the powerup doesn't move up and down if placed on top of an elevator.</li>
+						<li><strong>Loot table ID</strong>. Positive integer. Must be between 1 and 6. Only visible for powerups of the "powerup" variety. See Entity types above. Possible values include:</li>
+						<ol>
+							<li>Sledgehammer</li>
+							<li>Double Shotgun</li>
+							<li>Randomly: HyperBlaster, Rocket Launcher, Railgun, Health Cube, Breastplate, Nightmare Contraption, Bloodlust Goggles.</li>
+							<li>Randomly: same values as 3. plus Anti-Grav Boots.</li>
+							<li>Devastator</li>
+							<li>Rocket Enhancer</li>
+						</ol>
+					</ul>
+				</div>
+			</div>
+
+			<div id="zone" class="section">
+				<div class="header">
+					<h2>Zone</h2>
+				</div>
+
+				<div>
+					<ul>
+						<li><strong>Name</strong>. String. Required.</li>
+					</ul>
+				</div>
+			</div>
+
+			<div id="light" class="section">
+				<div class="header">
+					<h2>Light</h2>
+				</div>
+
+				<div>
+					<ul>
+						<li><strong>Y Offset</strong>. Integer. Lights are by default placed in the middle of the floor and ceiling Ys. This property offsets that Y position.</li>
+						<li><strong>Light color</strong>. Color.</li>
+					</ul>
+				</div>
+			</div>
+
+			<div id="scripting" class="section">
+				<div class="header">
+					<h2>Scripting</h2>
+				</div>
+
+				<div>
+					<p>A Lua scriptfile can be added to a map by creating a "script.lua" file in the map folder and checking the "Has script" checkbox in the Map menu.</p>
+
+					<p>The following functions will be called if the script provides an implementation:</p>
+					<ul>
+						<li><strong>init()</strong>. Called every time you respawn.</li>
+						<li><strong>onZoneEnter(zone: Zone)</strong>. Called every time you enter a zone (as defined in the <a href="#zone">Zone</a> layer).</li>
+						<li><strong>onZoneLeave(zone: Zone)</strong>. Called every time you leave a zone.</li>
+						<li><strong>onPowerupPickup(powerup: Powerup)</strong>. Called every time you pick up a powerup.</li>
+						<li><strong>onPlayerOpenDoor(door: Door)</strong>. Called every time you open a door.</li>
+						<li><strong>onSwitchStateChange(switch: Switch)</strong>. Called every time you use a switch.</li>
+					</ul>
+
+					<p>Exposed classes:</p>
+					<ul>
+						<li><strong>Door</strong></li>
+						<ul>
+							<li><strong>getId()</strong> : number</li>
+							<li><strong>setAutomatic(value: boolean)</strong> : void</li>
+							<li><strong>setSpeed(value: number)</strong> : void</li>
+							<li><strong>open()</strong> : void</li>
+							<li><strong>close()</strong> : void</li>
+							<li><strong>setCrusher(value: boolean)</strong> : void</li>
+						</ul>
+						<li><strong>Elevator</strong></li>
+						<ul>
+							<li><strong>getId()</strong> : number</li>
+							<li><strong>getDownY()</strong> : number</li>
+							<li><strong>setDownY()</strong> : number</li>
+							<li><strong>getUpY()</strong> : number</li>
+							<li><strong>setUpY()</strong> : number</li>
+							<li><strong>setAutomatic(value: boolean)</strong> : void</li>
+							<li><strong>setSpeed(value: number)</strong> : void</li>
+							<li><strong>setPositionUp()</strong> : void</li>
+							<li><strong>setPositionDown()</strong> : void</li>
+							<li><strong>goUp()</strong> : void</li>
+							<li><strong>goDown()</strong> : void</li>
+						</ul>
+						<li><strong>Powerup</strong></li>
+						<ul>
+							<li><strong>getId()</strong> : number</li>
+						</ul>
+						<li><strong>Switch</strong></li>
+						<ul>
+							<li><strong>getId()</strong> : number</li>
+							<li><strong>isOn()</strong> : boolean</li>
+							<li><strong>block()</strong> : void</li>
+						</ul>
+						<li><strong>Monster</strong></li>
+						<ul>
+							<li><strong>getId()</strong> : number</li>
+							<li><strong>awaken()</strong> : void</li>
+							<li><strong>makeScripted()</strong> : void</li>
+						</ul>
+						<li><strong>Zone</strong></li>
+						<ul>
+							<li><strong>name</strong> : string</li>
+						</ul>
+					</ul>
+
+					<p>Exposed globals:</p>
+					<ul>
+						<li><strong>doors</strong>: table of <strong>Door</strong>, key is door ID</li>
+						<li><strong>elevators</strong>: table of <strong>Elevator</strong>, key is elevator ID</li>
+						<li><strong>powerups</strong>: table of <strong>Powerup</strong>, key is powerup ID</li>
+						<li><strong>switches</strong>: table of <strong>Switch</strong>, key is switch ID</li>
+						<li><strong>monsters</strong>: table of <strong>Monster</strong>, key is monster ID</li>
+					</ul>
+				</div>
+			</div>
+
+			<div id="limitations" class="section">
+				<div class="header">
+					<h2>Limitations</h2>
+				</div>
+
+				<div>
+					<ul>
+						<li>Only individual custom levels can be created and published. There's no option to create and publish campaigns at this time.</li>
+						<li>Since only individual custom levels can be played, there's no "Permadeath" option when playing one.</li>
+						<li>Your inventory and all random powerups are reset every time you die and respawn.</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="section footer">
+				<hr/>
+				<p>
+					Gorescript and Gorescript Level Editor &copy; 2014-2017 Sergiu-Valentin Bucur. All rights reserved.<br/>
+					Steam and Steam Workshop &copy; Valve Corporation. All rights reserved.<br/>
+					All trademarks are property of their respective owners in the US and other countries.
+				</p>
+			</div>
+		</div>
+
+	</body>
+</html>

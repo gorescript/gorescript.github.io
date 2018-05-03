@@ -5,136 +5,264 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="Fast-paced '90s-style first-person shooter with an abstract 2.5D-meets-voxels aesthetic, made entirely in JavaScript / WebGL.">
+		<meta name="description" content="Gorescript is a classic first person shooter game, inspired by the great old classic FPS games that defined the genre. Fight your way through 18 handcrafted levels of frantic action paced gameplay, from easy to hardcore levels of difficulty.">
 
 		<meta property="og:title" content="gorescript" />
 		<meta property="og:site_name" content="gorescript"/>
 		<meta property="og:url" content="http://gorescript.com" />
-		<meta property="og:description" content="Fast-paced '90s-style first-person shooter with an abstract 2.5D-meets-voxels aesthetic, made entirely in JavaScript / WebGL." />
-		<meta property="og:image" content="http://gorescript.com/img/gs_og.jpg" />
+		<meta property="og:description" content="Gorescript is a classic first person shooter game, inspired by the great old classic FPS games that defined the genre. Fight your way through 18 handcrafted levels of frantic action paced gameplay, from easy to hardcore levels of difficulty." />
+		<meta property="og:image" content="http://gorescript.com/img/logo_black.png" />
 
 		<title>gorescript</title>
 
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
+		<link href="css/font-awesome.min.css" type="text/css" rel="stylesheet">
+		<link href="css/main.css" type="text/css" rel="stylesheet">
+		<link href="css/jquery-ui.min.css" type="text/css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Oxygen" type="text/css" rel="stylesheet">
 
-		<style>
+		<link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+		<script>
+		window.addEventListener("load", function(){
+		window.cookieconsent.initialise({
+		  "palette": {
+		    "popup": {
+		      "background": "#252e39"
+		    },
+		    "button": {
+		      "background": "#14a7d0"
+		    }
+		  },
+		  "content": {
+		    "message": "We use cookies to ensure you get the best experience on our website."
+		  }
+		})});
+		</script>
 
-			body {
-				padding-top: 66px;
-  			}
-			
-  			.logo.img-responsive {
-  				margin: 0 auto;
-  			}
-
-			.youtube-vid {
-				width: 100%;
-				height: 360px;
-			}
-			
-			.btn-success {
-				margin: 10px;
-				width: 175px;
-			}
-
-  		</style>
-
-		<!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
+		<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+		<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
 	</head>
 
 	<body>
 
-		<div class="container">
-			<div class="text-center">
-				<img class="logo img-responsive" src="../img/logo_gs.png" alt="gorescript">
+		<div class="fixed-menu">
+			<a href="~/../press">presskit</a>
+			<a href="https://gorescript.tumblr.com" target="_blank">blog</a>
+			<a href="~/../classic">gorescript classic</a>
+		</div>
 
-				<p class="lead"><strong>Fast-paced '90s-style first-person shooter with an abstract 2.5D-meets-voxels aesthetic,<br class="hidden-xs"/> made entirely in JavaScript / WebGL.</strong></p>
-				
-				<p>
-					<a class="btn btn-lg btn-success" href="play" role="button"><strong>Play</strong><br/><small><em>Chrome, Firefox</em></small></a>
-					<a class="btn btn-lg btn-success" href="http://chrome.google.com/webstore/detail/gorescript/bbohlinegjlacogbjchanihbiiboabcp" role="button"><strong>Add to Chrome</strong><br/><small><em>Chrome App</em></small></a>
-				</p><br/>
+		<div class="logo-row">
+			<span class="logo-text-container">
+				<a href="http://store.steampowered.com/app/618690">
+					<img class="logo" src="~/../img/logo_alpha.png" alt="gorescript">
+				</a>
+			</span>
+
+			<span class="logo-buttons-container">
+				<iframe src="http://store.steampowered.com/widget/618690/" frameborder="0" width="646" height="190"></iframe>
+			</span>
+		</div>
+
+		<div class="text-center">
+			<div class="content-block">
+				<div class="content-body">
+					<iframe class="video" src="http://www.youtube.com/embed/Plkvjci4RrU?showinfo=0" frameborder="0" allowfullscreen></iframe>
+				</div>
 			</div>
 
-			<div class="row">
-				<div class="text-justify">
-					<div class="row" style="margin-top: 50px">
-						<div class="col-xs-12 col-md-12">
-							<iframe class="youtube-vid" src="http://www.youtube.com/embed/mviNiZnASC4" frameborder="0" allowfullscreen></iframe>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-xs-6 col-md-3">
-							<a href="img/screenshots/1.jpg" class="thumbnail" target="_blank">
-								<img src="img/screenshots/1_sm.jpg" alt="screenshot 1">
-							</a>
-						</div>
-						<div class="col-xs-6 col-md-3">
-							<a href="img/screenshots/2.jpg" class="thumbnail" target="_blank">
-								<img src="img/screenshots/2_sm.jpg" alt="screenshot 2">
-							</a>
-						</div>
-						<div class="col-xs-6 col-md-3">
-							<a href="img/screenshots/3.jpg" class="thumbnail" target="_blank">
-								<img src="img/screenshots/3_sm.jpg" alt="screenshot 3">
-							</a>
-						</div>
-						<div class="col-xs-6 col-md-3">
-							<a href="img/screenshots/4.jpg" class="thumbnail" target="_blank">
-								<img src="img/screenshots/4_sm.jpg" alt="screenshot 4">
-							</a>
-						</div>
-					</div>
-
-					<h2 id="credits">Credits</h2><br/>					
-
-					<p>Music by:</p>
-					<ul>
-						<li><strong><a href="http://www.nosoapradio.us" target="_blank">DST</a></strong>: <strong>Angry Robot III</strong> and <a href="http://opengameart.org/content/tower-defense-theme" target="_blank"><strong>Tower Defense Theme</strong></a></li>
-						<li><strong><a href="http://opengameart.org/users/3uhox" target="_blank">3uhox</a></strong>: <a href="http://opengameart.org/content/simple-action-beat" target="_blank"><strong>Simple Action Beat</strong></a></li>
-					</ul><br/>
-
-					<p>Sounds effects used are downloaded from <a href="http://freesound.org/" target="_blank">freesound.org</a> and <a href="http://opengameart.org/" target="_blank">opengameart.org</a>, where they are listed as public domain content.</p>				
-
-					<p>The font used in the game menus and HUD is <a href="http://www.fontsquirrel.com/fonts/capsuula" target="_blank">Capsuula by Henrich Fichna</a>, downloaded from <a href="http://www.fontsquirrel.com" target="_blank">fontsquirrel.com</a>.</p>
-
-					<p>The space textures for the skybox are generated using <a href="http://alexcpeterson.com/spacescape" target="_blank">Spacescape by Alex Peterson</a>.</p>
-
-					<p><strong>Additional credits, per individual asset, can be found in the <a href="https://github.com/gorescript/gorescript/releases" target="_blank">assets archive</a> (assets/credits.txt).</strong></p>
-
-					<p><strong>gorescript was created, designed and implemented by <a href="http://ro.linkedin.com/in/sergiubucur/en" target="_blank">Sergiu Valentin Bucur</a> in 2014.</strong></p><br/>
-
-					<h2 id="contact">Contact</h2><br/>
-					
-					<p class="lead"><a href="http://twitter.com/gorescript" target="_blank">@gorescript</a><br/><a href="mailto:timeinvariantgames@gmail.com">timeinvariantgames@gmail.com</a></p><br/><br/>
-
+			<div class="content-block">
+				<div class="content-body">
+					<a href="~/../img/screenshots/1.jpg" target="_blank"><span class="screenshot ss-1"></span></a>
+					<a href="~/../img/screenshots/2.jpg" target="_blank"><span class="screenshot ss-2"></span></a>
+					<a href="~/../img/screenshots/3.jpg" target="_blank"><span class="screenshot ss-3"></span></a>
 				</div>
+			</div>
+
+			<div class="content-block">
+				<div class="content-title">
+					Quotes
+				</div>
+
+				<div class="content-body">
+					<a href="https://lunawolfgaming.com/2017/04/08/gorescript-preview/" target="_blank">
+						<span class="quote" style="padding-top: 25px">
+							<span class="quote-text">"Gorescript is a classic FPS in every way"</span><br/><br/>
+							<div class="quote-author">Lunawolf Gaming</div>
+						</span>
+					</a>
+					<a href="http://www.alphabetagamer.com/gorescript-pre-alpha-demo/" target="_blank">
+						<span class="quote">
+							<span class="quote-text">"Gorescript is an awesome old school first person shooter that draws inspiration from classics such as Quake and Doom"</span><br/><br/>
+							<div class="quote-author">Alpha Beta Gamer</div>
+						</span>
+					</a>
+				</span>
+			</div>
+
+			<div class="content-block">
+				<div class="content-title">
+					Weapons
+				</div>
+				<div class="content-body">
+					<span class="item item-2x3 item-hammer" data-tooltip="hammer"></span>
+					<span class="item item-2x3 item-shotgun" data-tooltip="shotgun"></span>
+					<span class="item item-2x3 item-hyperblaster" data-tooltip="hyperblaster"></span>
+					<span class="item item-3x3 item-rocket-launcher" data-tooltip="rocket-launcher"></span>
+				</div>
+			</div>
+
+			<span style="display: inline-block;">
+				<div class="content-block">
+					<div class="content-title">
+						Artifacts
+					</div>
+					<div class="content-body">
+						<span class="item item-2x2 item-bloodlust" data-tooltip="bloodlust"></span>
+						<span class="item item-2x2 item-boots" data-tooltip="boots"></span>
+						<span class="item item-2x2 item-nightmare" data-tooltip="nightmare"></span>
+					</div>
+				</div>
+			</span>
+
+			<span style="display: inline-block">
+				<div class="content-block">
+					<div class="content-title">
+						Consumables
+					</div>
+					<div class="content-body">
+						<span class="item item-2x2 item-health-cube" data-tooltip="health-cube"></span>
+						<span class="item item-2x2 item-breastplate" data-tooltip="breastplate"></span>
+					</div>
+				</div>
+			</span>
+
+			<div class="content-block">
+				<div class="content-title">
+					18 hand crafted levels (2.5D)<br/>
+					Levels can be finished with or without jumps<br/>
+					Jumps available only when you find the Anti-Grav Boots<br/>
+					6 weapons (5 ranged, 1 melee)<br/>
+					5 difficulty levels, Permadeath and Blackout modes<br/>
+					Global leaderboard rankings according to your total performance<br/>
+					Secrets are not optional but necessary to upgrade your armory<br/><br/>
+					<a href="http://www.indiedb.com/games/gorescript2/downloads/gorescript-pre-alpha-v3" class="alternate">Try Gorescript for Free!</a><br/><br/>
+				</div>
+			</div>
+
+			<div class="content-block eyes">
+				<img src="~/../img/gif/eye.gif" data-tooltip="eye">
+				<img src="~/../img/gif/eye.gif" data-tooltip="eye">
+			</div>
+
+			<div class="content-block">
+				<iframe src="http://store.steampowered.com/widget/618690/" frameborder="0" width="646" height="190"></iframe>
+			</div>
+
+			<div class="content-block">
+				<a href="https://twitter.com/gorescript" target="_blank"><span class="media-icon fa fa-twitter"></span></a>
+				<a href="https://www.facebook.com/gorescript" target="_blank"><span class="media-icon fa fa-facebook-square"></span></a>
+				<a href="https://gorescript.tumblr.com" target="_blank"><span class="media-icon fa fa-tumblr-square"></span></a>
+				<a href="https://youtube.com/c/gorescript" target="_blank"><span class="media-icon fa fa-youtube-square"></span></a>
+			</div>
+
+			<div class="content-block copyright">
+				<a href="mailto:contact@gorescript.com"><span class="media-icon fa fa-envelope-o"></span></a><br/><br/>
+
+				Published by <a href="http://amusedsloth.com" class="alternate" target="_blank">Amused Sloth</a><br/>
+				Music by <a href="http://satsu.ma" class="alternate" target="_blank">Satsuma Audio</a><br/><br/>
+				&copy; 2014-2017 <a href="https://github.com/sergiubucur" class="alternate" target="_blank">Sergiu-Valentin Bucur</a><br/>
+				All rights reserved.
 			</div>
 		</div>
 
-		<script src="js/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
+		<div class="item-tooltip tooltip-hammer">
+			<span class="item-name">Sledgehammer</span><br/>
+			Weapon<br/>
+			<br/>
+			Damage: 13
+		</div>
+
+		<div class="item-tooltip tooltip-shotgun">
+			<span class="item-name">Double Shotgun</span><br/>
+			Weapon<br/>
+			<br/>
+			Damage: 4 (x6)<br/>
+			Ammo type: Shells
+		</div>
+
+		<div class="item-tooltip tooltip-hyperblaster">
+			<span class="item-name">HyperBlaster</span><br/>
+			Weapon<br/>
+			<br/>
+			Damage: 3<br/>
+			Ammo type: Cells
+		</div>
+
+		<div class="item-tooltip tooltip-rocket-launcher">
+			<span class="item-name">Holy Rocket Launcher</span><br/>
+			Weapon<br/>
+			<br/>
+			Damage: 85<br/>
+			Ammo type: Rockets
+		</div>
+
+		<div class="item-tooltip tooltip-bloodlust">
+			<span class="item-name">Bloodlust Goggles</span><br/>
+			Artifact<br/>
+			<br/>
+			You steal life with each hit<br/>
+			You can no longer use medkits
+		</div>
+
+		<div class="item-tooltip tooltip-boots">
+			<span class="item-name">"Killer" Anti-Grav Boots</span><br/>
+			Artifact<br/>
+			<br/>
+			You can now jump<br/>
+			Land on something living, preferably
+		</div>
+
+		<div class="item-tooltip tooltip-nightmare">
+			<span class="item-name">Nightmare Contraption</span><br/>
+			Artifact<br/>
+			<br/>
+			Your damage is doubled<br/>
+			You also lose health every second
+		</div>
+
+		<div class="item-tooltip tooltip-health-cube">
+			<span class="item-name">Health Cube</span><br/>
+			Consumable<br/>
+			<br/>
+			Use: Gain 200 health
+		</div>
+
+		<div class="item-tooltip tooltip-breastplate">
+			<span class="item-name">Breastplate</span><br/>
+			Consumable<br/>
+			<br/>
+			Use: Gain 100 armor
+		</div>
+
+		<div class="item-tooltip tooltip-eye">
+			Illuminati confirmed!
+		</div>
 
 		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-			var $yt;
-
-			$(document).ready(function() {
-				$yt = $(".youtube-vid");
-				$(window).resize(resizeVideos);
-				resizeVideos();
-			});
-
-			function resizeVideos() {
-				$yt.each(function() {
-					$(this).height($(this).width() / 1.7777);
-				});
-			}
+		  ga('create', 'UA-92650259-1', 'auto');
+		  ga('send', 'pageview');
 
 		</script>
-		
+
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery-ui.min.js"></script>
+		<script src="js/main.js"></script>
+
 	</body>
 </html>
